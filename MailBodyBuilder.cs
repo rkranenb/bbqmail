@@ -1,4 +1,6 @@
-﻿namespace bbqmail {
+﻿using System.Text;
+
+namespace bbqmail {
 
     public interface IMailBodyBuilder {
         string Build(MailData data);
@@ -13,9 +15,9 @@
         }
 
         public string Build(MailData data) {
-            string template = templateProvider.GetTemplate(data.TemplateName);
+            var template = new StringBuilder(templateProvider.GetTemplate(data.TemplateName));
             template.Replace("{{FirstName}}", data.FirstName);
-            return template;
+            return template.ToString();
         }
 
     }
