@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.IO;
 
 namespace bbqmail {
 
@@ -9,11 +11,16 @@ namespace bbqmail {
     public class MailDataProvider : IMailDataProvider {
 
         public IEnumerable<MailData> GetData() {
-            yield return new MailData {
-                Address = "rkranenburg",
-                FirstName = "Robert",
-                LastName = "Kranenburg"
-            };
+
+            using (var reader = new StreamReader("bbq2017.json")) {
+                return JsonConvert.DeserializeObject<MailData[]>(reader.ReadToEnd());
+            }
+
+            //yield return new MailData {
+            //    Address = "rkranenburg",
+            //    FirstName = "Robert",
+            //    LastName = "Kranenburg"
+            //};
         }
 
     }
