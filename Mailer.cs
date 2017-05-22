@@ -38,7 +38,7 @@ namespace bbqmail {
                 client.Send(message);
             } catch (Exception e) {
                 var guid = dumper.Dump(message);
-                logger.Error("Failed to send message to {1}. Created dump: {0}", guid);
+                logger.Error("Failed to send message to {1}. Created dump: {0}", guid, data.FullName());
                 logger.Error($"Message: {e.Message}");
             }
 
