@@ -54,6 +54,7 @@
     <Compile Include="FailedMessageDumper.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="MailBodyBuilder.cs" />
+    <Compile Include="MailData.cs" />
     <Compile Include="MailDataProvider.cs" />
     <Compile Include="MessageComposer.cs" />
     <Compile Include="IoC.cs" />

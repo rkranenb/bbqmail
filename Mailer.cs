@@ -1,14 +1,7 @@
 ﻿using System;
 using System.Net.Mail;
 
-namespace bbqmail {
-
-    public class MailData {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Address { get; set; }
-        public string TemplateName { get; set; } = "bbq2017";
-    }
+namespace bbqmail {    
 
     public interface IMailer {
         void Send(MailData data);
@@ -43,9 +36,10 @@ namespace bbqmail {
 
             try {
                 client.Send(message);
-            } catch {
+            } catch (Exception e) {
                 var guid = dumper.Dump(message);
-                logger.Error("Failed to send message. Created dump: {0}", guid);
+                logger.Error("Failed to send message to {1}. Created dump: {0}", guid);
+                logger.Error($"Message: {e.Message}");
             }
 
             foreach (var address in message.To) {

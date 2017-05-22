@@ -17,6 +17,7 @@ namespace bbqmail {
         public string Build(MailData data) {
             var template = new StringBuilder(templateProvider.GetTemplate(data.TemplateName));
             template.Replace("{{FirstName}}", data.FirstName);
+            template.Replace("{{Id}}", data.Id);
             return template.ToString();
         }
 

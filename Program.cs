@@ -14,6 +14,7 @@ namespace bbqmail {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine(e.Message);
                     Console.ForegroundColor = color;
+                    Console.WriteLine(e.StackTrace);
                     e = e.InnerException;
                 }
             }
