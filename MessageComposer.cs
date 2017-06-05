@@ -20,7 +20,7 @@ namespace bbqmail {
             var message = new MailMessage {
                 Body = bodyBuilder.Build(data),
                 IsBodyHtml=true,
-                Subject = "Teamborrel / BBQ - TEST"
+                Subject = "Teamborrel / BBQ"
             };
             message.To.Add(addressBuilder.Build(data.Address));
             return message;
